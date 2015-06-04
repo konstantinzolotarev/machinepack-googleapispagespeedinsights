@@ -13,10 +13,16 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "googleapis": "^2.0.4",
+    "lodash": "^3.9.3",
     "machine": "^9.0.0"
   },
   "devDependencies": {
     "test-machinepack-mocha": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/konstantinzolotarev/machinepack-googleapispagespeedinsights.git"
   },
   "machinepack": {
     "friendlyName": "Google APIs PageSpeed Insights",
