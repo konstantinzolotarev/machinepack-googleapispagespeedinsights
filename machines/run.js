@@ -56,11 +56,6 @@ module.exports = {
     fields: {
       example: 'formattedResults,id,invalidRules,kind,pageStats,responseCode,ruleGroups,screenshot,title,version/major,version/minor',
       description: 'Selector specifying which fields to include in a partial response'
-    },
-
-    key: {
-      example: 'YOUR_API_KEY',
-      description: 'Your API Key'
     }
   },
 
@@ -78,7 +73,14 @@ module.exports = {
   fn: function(inputs, exits) {
     var params = {};
     _.merge(params, inputs);
-    return exits.success();
+
+    var pageSpeed = google.pagespeedonline('v2');
+    pageSpeed.pagespeedapi.runpagespeed(params, function(err, result) {
+      if (err) {
+        return exits.error(err);
+      }
+      return exits.success(result);
+    });
   }
 
 };
